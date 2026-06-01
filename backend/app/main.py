@@ -11,7 +11,7 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Inventory System API")
 frontend_urls = os.environ.get("FRONTEND_URL")
-origins = [url.strip() for url in frontend_urls.split(",") if url.strip()]
+origins = [frontend_urls]
 
 app.add_middleware(
     CORSMiddleware,

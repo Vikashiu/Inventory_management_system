@@ -10,12 +10,12 @@ from app.routes import customers, orders, products
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Inventory System API")
-frontend_urls = os.environ.get("FRONTEND_URL")
-origins = [frontend_urls]
+# frontend_urls = os.environ.get("FRONTEND_URL")
+# origins = [frontend_urls]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=[*],
     allow_credentials=True,
     allow_methods=["*"], # Allow all methods (GET, POST, PUT, DELETE)
     allow_headers=["*"], # Allow all headers

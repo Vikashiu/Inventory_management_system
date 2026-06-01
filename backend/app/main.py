@@ -10,7 +10,7 @@ from app.routes import customers, orders, products
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Inventory System API")
-frontend_urls = os.environ.get("FRONTEND_URLS", "http://localhost:3000,http://localhost:5173")
+frontend_urls = os.environ.get("FRONTEND_URL")
 origins = [url.strip() for url in frontend_urls.split(",") if url.strip()]
 
 app.add_middleware(
